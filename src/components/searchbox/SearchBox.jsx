@@ -12,7 +12,11 @@ const SearchBox = () => {
   };
 
   return (
-    <>
+    <div style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    }}>
       <p className={css.filterTitle}>Find contacts by name</p>
       <input
         className={css.filterField}
@@ -21,7 +25,7 @@ const SearchBox = () => {
         value={nameFilter}
         onChange={handleChange}
       />
-    </>
+    </div>
   );
 };
 
