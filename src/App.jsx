@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "./redux/contactsOps";
-import { getContacts, getIsLoading, getError } from "./redux/selectors";
+import { selectIsLoading, selectError } from "./redux/selectors";
+import { selectFilteredContacts } from "./redux/contactsSlice";
 import "./App.css";
 import ContactForm from "./components/contactform/ContactForm";
 import SearchBox from "./components/searchbox/SearchBox";
@@ -10,9 +11,9 @@ import Loader from "./components/loader/Loader";
 import ErrorMessage from "./components/errormessage/ErrorMessage";
 
 function App() {
-  const contacts = useSelector(getContacts);
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+  const contacts = useSelector(selectFilteredContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   const dispatch = useDispatch();
 
